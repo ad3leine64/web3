@@ -7,45 +7,11 @@
 
 /* ==================================================
    01. HEADER
+   Es el mismo header del home (imagen + degradado + textura de
+   style.css). Aquí solo se centra el título, igual que en Nosotros.
 ================================================== */
 
-.header-recursos {
-    position: relative;
-    overflow: hidden;
-}
-
-.header-recursos .header-image-placeholder {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-
-    background-color: #D9B48F;
-
-    background-image: url("../assets/images/recursos_header.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Degradado propio: terracota */
-
-.header-recursos .header-gradient-recursos {
-    background-image: url("../assets/images/recursos_header_gradient.png");
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    mix-blend-mode: multiply;
-}
-
-.header-recursos .header-texture {
-    background-image: url("../assets/images/home_header_texture.png");
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.header-recursos .header-content {
+.header-content {
     top: 50%;
     left: 0;
     width: 100%;
@@ -53,7 +19,7 @@
     text-align: center;
 }
 
-.header-recursos .header-content h1 {
+.header-content h1 {
     font-size: clamp(28px, 4vw, 48px);
     font-weight: 950;
     line-height: 1.1;
@@ -61,6 +27,19 @@
 
 .nav-links a.activo {
     color: #FCF1B8;
+}
+
+@media (max-width: 768px) {
+
+    .header-content {
+        top: 55%;
+        padding: 0 15px;
+    }
+
+    .header-content h1 {
+        font-size: clamp(28px, 6vw, 38px);
+    }
+
 }
 
 
@@ -259,6 +238,40 @@
 }
 
 
+/* PORTADA DE LIBRO
+   La tapa se muestra completa sobre un fondo del color de la edición. */
+
+.rc-portada.rc-portada-libro {
+    height: auto;
+    padding: 26px 20px 24px;
+}
+
+.rc-publico-familias .rc-portada { background-color: #FFF0BA; }
+.rc-publico-docentes .rc-portada { background-color: #FAD6C8; }
+.rc-publico-salud .rc-portada    { background-color: #DEEDCB; }
+
+.rc-portada-libro img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 270px;
+
+    /* Fondo blanco detrás de la imagen (mismo tamaño que la portada) */
+    background-color: #FFFFFF;
+
+    border-radius: 3px;
+    box-shadow:
+        0 14px 26px rgba(16, 43, 67, 0.32),
+        0 2px 5px rgba(16, 43, 67, 0.22);
+
+    transition: transform 0.35s ease;
+}
+
+.rc-card:hover .rc-portada-libro img {
+    transform: translateY(-5px) rotate(-1.5deg);
+}
+
+
 /* TEXTO */
 
 .rc-cuerpo {
@@ -448,6 +461,10 @@ a.rc-boton:focus-visible {
 
     .rc-portada {
         height: 120px;
+    }
+
+    .rc-portada-libro img {
+        height: 240px;
     }
 
 }

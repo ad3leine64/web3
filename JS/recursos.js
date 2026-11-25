@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const DURACION_APARICION = 800;
 
     const NOMBRES_TEMA = {
+        "libro": "Libro",
         "educacion-digital": "Educación digital",
         "violencia-digital": "Violencia digital",
         "esi": "Educación sexual integral"
@@ -84,7 +85,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const tarjeta = document.createElement("article");
 
-        tarjeta.className = `rc-card rc-tema-${recurso.tema}`;
+        const conPortada = Boolean(recurso.portada);
+
+        // Color de fondo de la portada según a quién va dirigido el libro
+        const primerPublico = (recurso.publico || "").split(/\s+/)[0];
+
+        tarjeta.className =
+            `rc-card rc-tema-${recurso.tema}` +
+            (conPortada ? ` rc-con-portada rc-publico-${primerPublico}` : "");
         tarjeta.dataset.tema = recurso.tema;
         tarjeta.dataset.publico = recurso.publico;
 
@@ -109,11 +117,23 @@ document.addEventListener("DOMContentLoaded", () => {
                    PRÓXIMAMENTE
                </span>`;
 
+        // Con portada: se muestra la tapa del libro.
+        // Sin portada: ícono de documento.
+
+        const portada = conPortada
+            ? `<div class="rc-portada rc-portada-libro">
+                   <img src="assets/images/${escapar(recurso.portada)}"
+                        alt="Portada: ${escapar(recurso.titulo)}"
+                        loading="lazy">
+                   ${tipoArchivo ? `<span class="rc-extension">${escapar(tipoArchivo)}</span>` : ""}
+               </div>`
+            : `<div class="rc-portada">
+                   ${ICONO_DOCUMENTO}
+                   ${tipoArchivo ? `<span class="rc-extension">${escapar(tipoArchivo)}</span>` : ""}
+               </div>`;
+
         tarjeta.innerHTML = `
-            <div class="rc-portada">
-                ${ICONO_DOCUMENTO}
-                ${tipoArchivo ? `<span class="rc-extension">${escapar(tipoArchivo)}</span>` : ""}
-            </div>
+            ${portada}
 
             <div class="rc-cuerpo">
                 <span class="rc-tag">

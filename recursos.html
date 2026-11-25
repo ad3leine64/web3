@@ -22,24 +22,18 @@
          01. ENCABEZADO
     ================================================== -->
 
-    <header class="header header-recursos">
+    <header class="header">
 
+        <!-- IMAGEN DE FONDO Y CAPAS (igual que el home) -->
         <div class="header-background">
-
-            <!-- IMAGEN: recursos_header.jpg -->
-            <div
-                class="header-image header-image-placeholder"
-                data-imagen="recursos_header.jpg">
-            </div>
-
-            <!-- GRADIENTE PROPIO -->
-            <div class="header-gradient header-gradient-recursos"></div>
-
-            <!-- TEXTURA COMPARTIDA -->
+            <img
+                src="assets/images/recursos_header.jpg"
+                alt="Imagen de fondo"
+                class="header-image"
+            >
+            <div class="header-gradient"></div>
             <div class="header-texture"></div>
-
         </div>
-
 
         <!-- CONTACTO -->
 
@@ -140,10 +134,11 @@
                 <h2>Materiales para informar, concientizar y proteger</h2>
 
                 <p>
-                    Descargá guías, infografías y materiales de apoyo para
-                    docentes, familias, niños, niñas y adolescentes, con
-                    herramientas concretas para el cuidado en el entorno
-                    digital.
+                    Descargá los libros de la colección «Construyendo una
+                    Infancia Sana», además de guías, infografías y materiales
+                    de apoyo para familias, docentes y profesionales de la
+                    salud, con herramientas concretas para el cuidado y la
+                    protección de las infancias.
                 </p>
 
             </div>
@@ -167,6 +162,7 @@
 
                         <select id="filtro-tema" name="tema">
                             <option value="todos">Filtrar por tema</option>
+                            <option value="libro">Libros</option>
                             <option value="educacion-digital">Educación digital</option>
                             <option value="violencia-digital">Violencia digital</option>
                             <option value="esi">Educación sexual integral</option>
@@ -192,6 +188,7 @@
                             <option value="todos">Filtrar por público</option>
                             <option value="docentes">Docentes</option>
                             <option value="familias">Familias</option>
+                            <option value="salud">Profesionales de la salud</option>
                             <option value="ninos">Niños, niñas y adolescentes</option>
                         </select>
 

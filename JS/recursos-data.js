@@ -13,9 +13,11 @@
    Campos:
      titulo     título de la tarjeta
      texto      descripción corta
-     tema       educacion-digital | violencia-digital | esi
-     publico    uno o más: docentes familias ninos
+     tema       libro | educacion-digital | violencia-digital | esi
+     publico    uno o más: docentes familias salud ninos
      formato    texto que se ve en la tarjeta (Guía, Infografía...)
+     portada    (opcional) imagen de tapa en assets/images/
+                Si la tiene, la tarjeta muestra la portada grande
      archivo    nombre del archivo en assets/recursos/
      peso       opcional, por ejemplo "1,2 MB"
 
@@ -26,6 +28,59 @@
 window.InfanciaSana = window.InfanciaSana || {};
 
 window.InfanciaSana.recursos = [
+
+    /* ----------------------------------------------
+       LIBROS: CONSTRUYENDO UNA INFANCIA SANA
+       Cuando tengas los PDF, copialos en assets/recursos/
+       y completá "archivo" (y "peso" si querés).
+    ---------------------------------------------- */
+
+    {
+        titulo: "Construyendo una Infancia Sana: edición para familias",
+        texto:
+            "Educar para proteger. Un libro pensado para que las " +
+            "familias puedan acompañar, cuidar y proteger a niños, " +
+            "niñas y adolescentes.",
+        tema: "libro",
+        publico: "familias",
+        formato: "Libro · 1.ª edición",
+        portada: "libro_familias.jpg",
+        archivo: "",
+        peso: ""
+    },
+
+    {
+        titulo: "Construyendo una Infancia Sana: edición para docentes",
+        texto:
+            "Educar para proteger. Un libro pensado para que docentes " +
+            "y escuelas trabajen la prevención y el cuidado de las " +
+            "infancias.",
+        tema: "libro",
+        publico: "docentes",
+        formato: "Libro · 1.ª edición",
+        portada: "libro_docentes.jpg",
+        archivo: "",
+        peso: ""
+    },
+
+    {
+        titulo: "Construyendo una Infancia Sana: edición para profesionales de la salud",
+        texto:
+            "Educar para proteger. Un libro pensado para que " +
+            "profesionales de la salud acompañen y protejan a niños, " +
+            "niñas y adolescentes.",
+        tema: "libro",
+        publico: "salud",
+        formato: "Libro · 1.ª edición",
+        portada: "libro_salud.jpg",
+        archivo: "",
+        peso: ""
+    },
+
+
+    /* ----------------------------------------------
+       OTROS MATERIALES (modelo: reemplazalos o borralos)
+    ---------------------------------------------- */
 
     {
         titulo: "Guía de navegación segura para familias",
